@@ -4,4 +4,7 @@ from django.http import HttpResponse
 def home_page(request):
     # render will seach for home.html from templates directory in any apps directory
     # Then it builds a HttpResponse based on the content of the templates
-    return render(request, 'home.html')
+
+    return render(request, 'home.html', {
+        'new_item_text': request.POST.get('item_text',''),
+    })
